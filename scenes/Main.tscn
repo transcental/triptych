@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpv6nsjainpdi"]
+
+[ext_resource type="Script" path="res://scenes/debug_screen.gd" id="1_ahc5l"]
+[ext_resource type="PackedScene" uid="uid://yp1l7a8fv8cy" path="res://scenes/TriptychManager.tscn" id="2_wa7mv"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("triptych_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahc5l")
+triptych_manager = NodePath("TriptychManager")
+
+[node name="Level 1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 158.0
+offset_right = 281.0
+offset_bottom = 189.0
+scale = Vector2(7.02977, 7.02977)
+text = "Level 1"
+
+[node name="TriptychManager" parent="." instance=ExtResource("2_wa7mv")]
+
+[connection signal="pressed" from="Level 1" to="." method="_on_level_1_pressed"]
