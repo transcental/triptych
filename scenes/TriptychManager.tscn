@@ -4,3 +4,4 @@
 
 [node name="TriptychManager" type="Node"]
 script = ExtResource("1_nsf1b")
+number_of_windows = 4

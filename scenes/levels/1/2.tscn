@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj1ep4r22r0iw"]
+[gd_scene load_steps=2 format=3 uid="uid://bvlnty5lptmvi"]
 
 [ext_resource type="PackedScene" uid="uid://clfxjanbiad5b" path="res://scenes/levels/BaseLevel.tscn" id="1_fjyku"]
 
 [node name="BaseLevel" instance=ExtResource("1_fjyku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31754, 0, 0)
+
+[node name="Camera3D" parent="." index="1"]
+transform = Transform3D(0.771415, 0.00288436, 0.636326, -0.00605356, 0.999978, 0.00280597, -0.636304, -0.00601661, 0.771415, 4.15673, 0, 4.66774)
+
+[node name="DirectionalLight3D" parent="." index="2"]
+light_color = Color(0.791999, 0.791999, 0.791999, 1)

@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://clfxjanbiad5b"]
+[gd_scene load_steps=3 format=3 uid="uid://clfxjanbiad5b"]
 
 [ext_resource type="PackedScene" uid="uid://dbvt3ft7338wt" path="res://scenes/Player.tscn" id="1_buakt"]
+[ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_by5ln"]
 
 [node name="BaseLevel" type="Node3D"]
+script = ExtResource("1_by5ln")
 
 [node name="Player" parent="." instance=ExtResource("1_buakt")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.771415, 0.00288436, 0.636326, -0.00605356, 0.999978, 0.00280597, -0.636304, -0.00601661, 0.771415, 2.66934, 0, 3.44762)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.185718, 0, 0.982603, 0, 1, 0, -0.982603, 0, 0.185718, 3.4731, 2.0401, 0.594634)
+light_color = Color(0.210507, 0.210507, 0.210507, 1)
+light_energy = 16.0

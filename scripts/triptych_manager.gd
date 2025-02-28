@@ -24,12 +24,12 @@ func _ready() -> void:
 		win.size = Vector2(1500, 1500)
 		windows.append(win)
 		
-		var label = Label.new()
-
-		label.text = "This is window %s for the tryptic!" % n
+		#var label = Label.new()
+#
+		#label.text = "This is window %s for the tryptic!" % n
 		
 		var vp = SubViewport.new()
-		vp.add_child(label)
+		#vp.add_child(label)
 		win.add_child(vp)
 		
 		var sprite = Sprite2D.new()
@@ -38,8 +38,8 @@ func _ready() -> void:
 		win.add_child(sprite)
 
 
-func next_level(level_override: int = -1) -> void:
-	var level = level_override
+func next_level(override: int = -1) -> void:
+	var level = override
 	if level == -1:
 		level = current_level + 1
 
@@ -48,17 +48,13 @@ func next_level(level_override: int = -1) -> void:
 	var level_dir = DirAccess.open("%s/%s" % [LEVEL_DIR, level])
 	var new_levels = []
 	if level_dir:
-		level_dir.list_dir_begin()
-		var file = level_dir.get_next()
-		while file != "":
-			if level_dir.current_is_dir():
-				print("Directory: %s" % file)
-			else:
-				print("Found file: %s" % file)
-				new_levels.append(file)
-			file = level_dir.get_next()
+		var files = level_dir.get_files()
+		for file in files:
+			print("Found file: %s" % file)
+			new_levels.append(file)
 	else:
 		push_warning("Level %s not found - end of game?" % level)
+		return
 
 	for i in windows.size():
 		var win: Window = windows[i]
@@ -70,19 +66,23 @@ func next_level(level_override: int = -1) -> void:
 		for child in children:
 			if child is Node:
 				scenes.append(child)
+
 		if scenes.size() == windows.size():
 			for scene in scenes:
 				vp.remove_child(scene)
 		elif level == 0:
 			pass
-		elif level_override != -1 :
+		elif override != -1 :
 			push_warning("How did we get here.....")
 		else:
 			push_warning("Prior scenes not found - assuming non existent. (This should only happen in a manual debug override)")
 			
 		if new_levels.size() == windows.size():
-			var scene = load("%s/%s/%s" % [LEVEL_DIR, level, new_levels[i]])
+			var path = "%s/%s/%s" % [LEVEL_DIR, level, new_levels[i]]
+			print("Window: %s | Screen: %s" % [i, path])
+			var scene = load(path)
 			var instance = scene.instantiate()
+			
 			vp.add_child(instance)
 		else:
 			push_error("There aren't enough scenes for level %s" % level)

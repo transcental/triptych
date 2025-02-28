@@ -1,6 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd1q45s0nro45"]
+[gd_scene load_steps=2 format=3 uid="uid://q40b5idokcgw"]
 
 [ext_resource type="PackedScene" uid="uid://clfxjanbiad5b" path="res://scenes/levels/BaseLevel.tscn" id="1_ljtmg"]
 
 [node name="BaseLevel" instance=ExtResource("1_ljtmg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3145)

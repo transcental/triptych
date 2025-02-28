@@ -7,6 +7,7 @@
 size = Vector3(2.00098, 2.00092, 2.01587)
 
 [node name="Player" type="CharacterBody3D"]
+motion_mode = 1
 script = ExtResource("1_by0fk")
 
 [node name="Pivot" type="Node3D" parent="."]

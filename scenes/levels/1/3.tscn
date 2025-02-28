@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl8q34dkqlt8r"]
+[gd_scene load_steps=2 format=3 uid="uid://22vy5lflfj0w"]
 
 [ext_resource type="PackedScene" uid="uid://clfxjanbiad5b" path="res://scenes/levels/BaseLevel.tscn" id="1_bb8m5"]
 
 [node name="BaseLevel" instance=ExtResource("1_bb8m5")]
 
-[node name="Player" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.61562)
+[node name="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
